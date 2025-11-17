@@ -133,6 +133,11 @@
       border: none;
       cursor: pointer;
       margin-bottom: 10px;
+
+      /* aタグにも綺麗に効くように追加 */
+      display: block;
+      text-align: center;
+      text-decoration: none;
     }
 
     .btn-primary {
@@ -165,11 +170,6 @@
         window.location.href = LINE_URL;
       }, 1200); // 1.2秒後に遷移（お好みで調整OK）
     });
-
-    function openLine() {
-      // ここはクリックイベントをGTMで拾いやすいように関数化＆id付け
-      window.location.href = LINE_URL;
-    }
 
     function openDownload() {
       window.location.href = "https://line.me/download";
@@ -208,12 +208,20 @@
 
     <!-- 下のボタン -->
     <div class="bottom">
-      <button id="open-line-btn" class="btn btn-primary" onclick="openLine()">
+      <!-- ★ここを aタグ＋id=js-line-cta に変更（GTMのトリガーと一致させる） -->
+      <a
+        id="js-line-cta"
+        class="btn btn-primary"
+        href="https://lin.ee/DBTAePO"
+      >
         LINEアプリを開く
-      </button>
+      </a>
+
+      <!-- ダウンロードボタンはクリック計測していないのでこのままでもOK。必要ならaタグでも可 -->
       <button id="download-line-btn" class="btn btn-secondary" onclick="openDownload()">
         LINEアプリをダウンロード
       </button>
+
       <div class="note">
         自動で画面が切り替わらない場合は、<br />
         「LINEアプリを開く」をタップしてください。
