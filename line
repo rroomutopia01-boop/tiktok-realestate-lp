@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8" />
+  <title>LINEアプリを開く</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="format-detection" content="telephone=no" />
+
+  <!-- Google Tag Manager -->
+  <script>
+    (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+    'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+    })(window,document,'script','dataLayer','GTM-5N9B24DT');
+  </script>
+  <!-- End Google Tag Manager -->
+
+  <!-- GA4用：このページ固有のイベント名をdataLayerに投げておく -->
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    window.dataLayer.push({
+      event: 'line_bridge_page_view'
+    });
+  </script>
+
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      padding: 0;
+      background-color: #ffffff;
+      color: #111111;
+      font-family: -apple-system, BlinkMacSystemFont, "Helvetica Neue",
+        "Segoe UI", sans-serif;
+    }
+
+    .page {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    /* 上の「〈 LINE / line.me / …」部分 */
+    .nav-bar {
+      height: 44px;
+      padding: 0 12px;
+      display: flex;
+      align-items: center;
+      border-bottom: 1px solid #f0f0f0;
+    }
+
+    .nav-left,
+    .nav-right {
+      width: 48px;
+      font-size: 22px;
+      display: flex;
+      align-items: center;
+      justify-content: flex-start;
+      color: #111111;
+    }
+
+    .nav-right {
+      justify-content: flex-end;
+    }
+
+    .nav-center {
+      flex: 1;
+      text-align: center;
+      line-height: 1.2;
+    }
+
+    .nav-title {
+      font-size: 16px;
+      font-weight: 600;
+    }
+
+    .nav-subtitle {
+      font-size: 11px;
+      color: #777777;
+    }
+
+    /* メインコンテンツ */
+    .main {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 24px 24px 32px;
+    }
+
+    .line-logo {
+      width: 96px;
+      height: 96px;
+      border-radius: 24px;
+      background-color: #06c755;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 24px;
+    }
+
+    .line-logo-text {
+      font-size: 24px;
+      font-weight: 700;
+      color: #ffffff;
+      letter-spacing: 2px;
+    }
+
+    .message {
+      font-size: 18px;
+      font-weight: 600;
+      line-height: 1.6;
+      margin: 0;
+    }
+
+    /* 下のボタンエリア */
+    .bottom {
+      padding: 16px 16px 24px;
+    }
+
+    .btn {
+      width: 100%;
+      border-radius: 10px;
+      padding: 14px 16px;
+      font-size: 17px;
+      font-weight: 600;
+      border: none;
+      cursor: pointer;
+      margin-bottom: 10px;
+
+      /* aタグにも綺麗に効くように追加 */
+      display: block;
+      text-align: center;
+      text-decoration: none;
+    }
+
+    .btn-primary {
+      background-color: #06c755;
+      color: #ffffff;
+    }
+
+    .btn-secondary {
+      background-color: #ffffff;
+      color: #111111;
+      border: 1px solid #d3d3d3;
+    }
+
+    .note {
+      font-size: 12px;
+      color: #999999;
+      text-align: center;
+      margin-top: 8px;
+      line-height: 1.4;
+    }
+  </style>
+
+  <script>
+    // ★あなたの公式LINEのURL
+    const LINE_URL = "https://lin.ee/ws2JNEh";
+
+    document.addEventListener("DOMContentLoaded", function () {
+      // 数秒後に自動でLINEアプリを開く（失敗したらこの画面に残る）
+      setTimeout(function () {
+        window.location.href = LINE_URL;
+      }, 1200); // 1.2秒後に遷移（お好みで調整OK）
+    });
+
+    function openDownload() {
+      window.location.href = "https://line.me/download";
+    }
+  </script>
+</head>
+<body>
+  <!-- Google Tag Manager (noscript) -->
+  <noscript>
+    <iframe src="https://www.googletagmanager.com/ns.html?id=GTM-5N9B24DT"
+      height="0" width="0" style="display:none;visibility:hidden"></iframe>
+  </noscript>
+  <!-- End Google Tag Manager (noscript) -->
+
+  <div class="page">
+    <!-- 上のバー（戻る / LINE / line.me / …） -->
+    <header class="nav-bar">
+      <div class="nav-left">‹</div>
+      <div class="nav-center">
+        <div class="nav-title">LINE</div>
+        <div class="nav-subtitle">line.me</div>
+      </div>
+      <div class="nav-right">⋯</div>
+    </header>
+
+    <!-- 真ん中のロゴ＋テキスト -->
+    <main class="main">
+      <div class="line-logo">
+        <span class="line-logo-text">LINE</span>
+      </div>
+      <p class="message">
+        LINEアプリを開いて<br />
+        続行して下さい。
+      </p>
+    </main>
+
+    <!-- 下のボタン -->
+    <div class="bottom">
+      <!-- ★ここを aタグ＋id=js-line-cta に変更（GTMのトリガーと一致させる） -->
+      <a
+        id="js-line-cta"
+        class="btn btn-primary"
+        href="https://lin.ee/ws2JNEh"
+      >
+        LINEアプリを開く
+      </a>
+
+      <!-- ダウンロードボタンはクリック計測していないのでこのままでもOK。必要ならaタグでも可 -->
+      <button id="download-line-btn" class="btn btn-secondary" onclick="openDownload()">
+        LINEアプリをダウンロード
+      </button>
+
+      <div class="note">
+        自動で画面が切り替わらない場合は、<br />
+        「LINEアプリを開く」をタップしてください。
+      </div>
+    </div>
+  </div>
+</body>
+</html>
